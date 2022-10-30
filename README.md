@@ -8,6 +8,7 @@ We were required to do the following:
 - create your data model
 - manage (create, update, destroy, etc) objects via a console / command interpreter
 - store and persist objects to a file (JSON file)
+
 The first piece is to manipulate a powerful storage system. This storage engine
 will give us an abstraction between “My object” and “How they are stored and persisted”.
 
