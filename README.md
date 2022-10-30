@@ -1,8 +1,8 @@
 # AirBnB clone
 An emulation of the web application [AirBnB](https://www.airbnb.com).
-The project had six steps, with each step linking to concept.
+The project had six steps, with each step linking to a concept.
 
-We were required to do the following:
+**We were required to do the following:**
 
 ## The console
 - create your data model
