@@ -6,6 +6,10 @@ import cmd
 from models.base_model import BaseModel
 from models.state import State
 from models.user import User
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 class HBNBCommand(cmd.Cmd):
@@ -17,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """ Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id """
-        class_dict = {"BaseModel": BaseModel, "User": User, "State": State}
+        class_dict = {"BaseModel": BaseModel, "User": User, "State": State, "Amenity": Amenity, "Place": Place, "Review": Review, "City": City}
         if arg is None or arg == '':
             print('** class name missing **')
         elif arg not in class_dict.keys():
@@ -30,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """ Prints the string representation of an instance based on the class name and id.
         """
-        class_list = ["BaseModel", "User", "State"]
+        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
         if arg is None or arg == '':
             print('** class name missing **')
         else:
@@ -53,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
             Usage:
                 destroy <name of class> <id of object>
         """
-        class_list = ["BaseModel", "User", "State"]
+        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
         if arg is None or arg == '':
             print("** class name missing **")
         else:
@@ -78,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
                 all - prints all objects
                 all <class name> - prints all instances of <class name>
         """
-        class_list = ["BaseModel", "User", "State"]
+        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
         if arg is None or arg == '':
             for k, v in storage.all().items():
                 print(v)
@@ -99,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
             Usage:
                 update <class name> <id> <attribute name> "<attribute value>"
         """
-        class_list = ["BaseModel", "User", "state"]
+        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
         if arg is None or arg == '':
             print("** class name missing **")
         else:
