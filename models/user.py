@@ -5,6 +5,7 @@
 
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     """ Inherits from BaseModel and defines a user object """
     email = ''
