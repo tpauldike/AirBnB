@@ -6,6 +6,7 @@ import uuid
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """ Defines all common attributes/methods for other classes """
 
@@ -32,14 +33,15 @@ class BaseModel:
                         self.__dict__[k] = v
 
     def save(self):
-        """ Updates the public instance attribute `updated_at` with the current datetime """
+        """ Updates the public instance attribute `updated_at`"""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        """ Returns a dictionary containing all keys/values of __dict__ of the instance, the class name with key __class__
+        """ Returns a dic containing all items of __dict__ of the instance.
 
-            Note: created_at and updated_at must be converted to string objects in ISO format.
+            Note: created_at and updated_at must be converted to
+            string objects in ISO format.
         """
         base_dict = self.__dict__.copy()
         base_dict["__class__"] = self.__class__.__name__
@@ -48,8 +50,9 @@ class BaseModel:
         return (base_dict)
 
     def __str__(self):
-        """ Overrides the __str__ method and return human readable information about object.
+        """ Overrides the __str__ method and return human readable
+        information about object.
 
             Format: [<class name>] (<self.id>) <self.__dict__>
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return f"[{self.__class__.__name__}] ({self.id}) { self.id}"
