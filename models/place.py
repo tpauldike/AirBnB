@@ -22,7 +22,7 @@ class Place(BaseModel):
             longitude (float): longitude value of the place
             amenity_ids (list of string): list of Amenity.id
 
-    """    
+    """
     city_id = ''
     user_id = ''
     name = ''
@@ -42,5 +42,5 @@ class Place(BaseModel):
                 *args(tuple): Not Used
                 **kwargs (dictionary): dictionary of objects
 
-        """ 
+        """
         super().__init__(**kwargs)

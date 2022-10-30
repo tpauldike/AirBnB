@@ -4,8 +4,9 @@
 """ Defines the City Class """
 from models.base_model import BaseModel
 
+
 class City(BaseModel):
-    """ Iherits from BaseModel class 
+    """ Iherits from BaseModel class
 
         Attributes:
             state_id(str): id of state <State.id>
@@ -14,6 +15,7 @@ class City(BaseModel):
     """
     state_id = ''
     name = ''
+
     def __init__(self, *args, **kwargs):
         """ Initialises the class City
 

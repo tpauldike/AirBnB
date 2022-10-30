@@ -5,6 +5,7 @@
 
 from models.base_model import BaseModel
 
+
 class Amenity(BaseModel):
     """ Subclass of BaseModel class
 
@@ -13,6 +14,7 @@ class Amenity(BaseModel):
 
     """
     name = ''
+
     def __init__(self, *args, **kwargs):
         """ Initialises the Amenity class
 
