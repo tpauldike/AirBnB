@@ -12,6 +12,7 @@ from models.place import Place
 from models.review import Review
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """ Defines the HBNB class
 
@@ -20,8 +21,16 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_create(self, arg):
-        """ Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id """
-        class_dict = {"BaseModel": BaseModel, "User": User, "State": State, "Amenity": Amenity, "Place": Place, "Review": Review, "City": City}
+        """ Creates a new instance of BaseModel, saves it
+        (to the JSON file) and prints the id """
+        class_dict = {
+            "BaseModel": BaseModel,
+            "User": User,
+            "State": State,
+            "Amenity": Amenity,
+            "Place": Place,
+            "Review": Review,
+            "City": City}
         if arg is None or arg == '':
             print('** class name missing **')
         elif arg not in class_dict.keys():
@@ -32,9 +41,17 @@ class HBNBCommand(cmd.Cmd):
             print(obj.id)
 
     def do_show(self, arg):
-        """ Prints the string representation of an instance based on the class name and id.
+        """ Prints the string representation of an instance based
+on the class name and id.
         """
-        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
+        class_list = [
+            "BaseModel",
+            "User",
+            "State",
+            "Place",
+            "Amenity",
+            "Review",
+            "City"]
         if arg is None or arg == '':
             print('** class name missing **')
         else:
@@ -52,12 +69,20 @@ class HBNBCommand(cmd.Cmd):
                     print(obj)
 
     def do_destroy(self, arg):
-        """ Deletes an instance based on the class name and id (save the change into the JSON file)
-            
+        """ Deletes an instance based on the class name and id
+        (save the change into the JSON file)
+
             Usage:
                 destroy <name of class> <id of object>
         """
-        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
+        class_list = [
+            "BaseModel",
+            "User",
+            "State",
+            "Place",
+            "Amenity",
+            "Review",
+            "City"]
         if arg is None or arg == '':
             print("** class name missing **")
         else:
@@ -76,13 +101,21 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
 
     def do_all(self, arg):
-        """ Prints all string representation of all instances based or not on the class name.
+        """ Prints all string representation of all instances based
+        or not on the class name.
 
             Usage:
                 all - prints all objects
                 all <class name> - prints all instances of <class name>
         """
-        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
+        class_list = [
+            "BaseModel",
+            "User",
+            "State",
+            "Place",
+            "Amenity",
+            "Review",
+            "City"]
         if arg is None or arg == '':
             for k, v in storage.all().items():
                 print(v)
@@ -98,12 +131,20 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_update(self, arg):
-        """ Updates an instance based on the class name and id by adding or updating attribute(save the chaneg into the JSON file)
+        """ Updates an instance based on the class name and id by
+        adding or updating attribute(save the chaneg into the JSON file)
 
             Usage:
                 update <class name> <id> <attribute name> "<attribute value>"
         """
-        class_list = ["BaseModel", "User", "State", "Place", "Amenity", "Review", "City"]
+        class_list = [
+            "BaseModel",
+            "User",
+            "State",
+            "Place",
+            "Amenity",
+            "Review",
+            "City"]
         if arg is None or arg == '':
             print("** class name missing **")
         else:
@@ -126,7 +167,7 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         new_val = args[3].split("\"")
                         if len(new_val) != 3 or new_val[2] != '':
-                            print("** make sure that the value is in \" \" or you're updating just one attribute **")
+                            pass
                         else:
                             obj.__dict__[args[2]] = new_val[1]
                             obj.save()
@@ -142,13 +183,15 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """ Called when an empty line is entered in the prompt
-        If the method is not overridden, it repeates the last non-empty command entered.
+        If the method is not overridden, it repeates the last
+        non-empty command entered.
         Another Implementation:
         if self.lastcmd:
             self.lastcmd = ''
             return self.onecmd("\n")
         """
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
