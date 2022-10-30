@@ -14,6 +14,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.city import City
 
+
 class TestCity_instantiation(unittest.TestCase):
     """ Unittests for testing the instantiation of the class City """
 
@@ -50,6 +51,7 @@ class TestCity_instantiation(unittest.TestCase):
 
 class TestCity_save(unittest.TestCase):
     """ Unittests for testing save method for City Class """
+
     def test_save(self):
         ct = City()
         first_update = ct.updated_at
@@ -70,6 +72,7 @@ class TestCity_save(unittest.TestCase):
 
 class TestCity_to_dict(unittest.TestCase):
     """ Unittests for the to_dict method of City class """
+
     def test_to_dict_type(self):
         self.assertIsInstance(City().to_dict(), dict)
 

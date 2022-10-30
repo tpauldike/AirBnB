@@ -14,8 +14,10 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.place import Place
 
+
 class TestPlace_instatiation(unittest.TestCase):
     """ Unittests for testing the instatiation of the class Place """
+
     def test_place_class(self):
         self.assertIsInstance(Place(), Place)
 
@@ -94,6 +96,7 @@ class TestPlace_instatiation(unittest.TestCase):
 
 class TestPlace_save(unittest.TestCase):
     """ Unittests for save method of the Place class """
+
     def testplace_save(self):
         pl = Place()
         first_update = pl.updated_at
@@ -114,6 +117,7 @@ class TestPlace_save(unittest.TestCase):
 
 class TestPlace_to_dict(unittest.TestCase):
     """ Unittest for to_dict method of Place Class """
+
     def test_place_to_dict_type(self):
         self.assertIsInstance(Place().to_dict(), dict)
 
@@ -138,7 +142,6 @@ class TestPlace_to_dict(unittest.TestCase):
     def test_place_to_dict_with_args(self):
         with self.assertRaises(TypeError):
             Place().to_dict([])
-
 
 
 if __name__ == "__main__":

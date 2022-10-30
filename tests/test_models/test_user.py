@@ -12,6 +12,7 @@ from datetime import datetime
 from models.user import User
 from models.base_model import BaseModel
 
+
 class TestUser_instantiation(unittest.TestCase):
     """ Unittest for testing the instantiation of the User class. """
 

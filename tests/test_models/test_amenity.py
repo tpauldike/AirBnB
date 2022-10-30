@@ -14,8 +14,10 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.amenity import Amenity
 
+
 class TestAmenity_instatiation(unittest.TestCase):
     """ Unittests for testing the instatiation of the class Amenity """
+
     def test_amenity_class(self):
         self.assertIsInstance(Amenity(), Amenity)
 
@@ -44,6 +46,7 @@ class TestAmenity_instatiation(unittest.TestCase):
 
 class TestAmenity_save(unittest.TestCase):
     """ Unittests for save method of the Amenity class """
+
     def testamenity_save(self):
         am = Amenity()
         first_update = am.updated_at
@@ -64,6 +67,7 @@ class TestAmenity_save(unittest.TestCase):
 
 class TestAmenity_to_dict(unittest.TestCase):
     """ Unittest for to_dict method of Amenity Class """
+
     def test_amenity_to_dict_type(self):
         self.assertIsInstance(Amenity().to_dict(), dict)
 
@@ -88,7 +92,6 @@ class TestAmenity_to_dict(unittest.TestCase):
     def test_amenity_to_dict_with_args(self):
         with self.assertRaises(TypeError):
             Amenity().to_dict([])
-
 
 
 if __name__ == "__main__":
