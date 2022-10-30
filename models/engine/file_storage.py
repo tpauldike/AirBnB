@@ -5,8 +5,10 @@
 
 import json
 
+
 class FileStorage:
-    """ Serialises instances to a JSON file and deserialises JSON file to instances
+    """Serialises instances to a JSON file and deserialises JSON
+    file to instances
 
         Attributes:
             __objects: dictionary of objects
@@ -42,7 +44,7 @@ class FileStorage:
             json.dump(obj_dict, f)
 
     def reload(self):
-        """ Deserialises the JSON file to __objects only if JSON file exits. 
+        """ Deserialises the JSON file to __objects only if JSON file exits.
             It does nothing otherwise
         """
         from models.base_model import BaseModel
@@ -57,6 +59,7 @@ class FileStorage:
                 text = f.read()
                 dict_text = json.loads(text)
                 for k, v in dict_text.items():
-                    type(self).__objects[k] = eval(''.join([k.split('.')[0], '(**v)']))
+                    type(self).__objects[k] = eval(
+                        ''.join([k.split('.')[0], '(**v)']))
         except FileNotFoundError:
             pass
