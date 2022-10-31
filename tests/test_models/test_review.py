@@ -14,8 +14,10 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.review import Review
 
+
 class TestReview_instatiation(unittest.TestCase):
     """ Unittests for testing the instatiation of the class Review """
+
     def test_review_class(self):
         self.assertIsInstance(Review(), Review)
 
@@ -54,6 +56,7 @@ class TestReview_instatiation(unittest.TestCase):
 
 class TestReview_save(unittest.TestCase):
     """ Unittests for save method of the Review class """
+
     def testreview_save(self):
         rv = Review()
         first_update = rv.updated_at
@@ -74,6 +77,7 @@ class TestReview_save(unittest.TestCase):
 
 class TestReview_to_dict(unittest.TestCase):
     """ Unittest for to_dict method of Review Class """
+
     def test_review_to_dict_type(self):
         self.assertIsInstance(Review().to_dict(), dict)
 
@@ -98,7 +102,6 @@ class TestReview_to_dict(unittest.TestCase):
     def test_review_to_dict_with_args(self):
         with self.assertRaises(TypeError):
             Review().to_dict([])
-
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#test_base_model.py
+# test_base_model.py
 
 """ Defines unittests for base_model.py.
 
@@ -12,6 +12,7 @@
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
+
 
 class TestBase_instantiation(unittest.TestCase):
     """ Unittests for testing the instantiation of the BaseModel class. """
@@ -61,13 +62,14 @@ class TestBase_instantiation(unittest.TestCase):
 
 class TestBase_with_kwargs(unittest.TestCase):
     """ Unittests for initialising BaseModel object with kwargs """
-    
+
     def test_create_BaseModel(self):
         b1 = BaseModel()
         b1_dict = b1.to_dict()
         b2 = BaseModel(**b1_dict)
         self.assertEqual(str(b1), str(b2))
-        obj_str = "[" + b1.__class__.__name__ + "] (" + b1.id + ") "+ str(b1.__dict__)
+        obj_str = "[" + b1.__class__.__name__ + \
+            "] (" + b1.id + ") " + str(b1.__dict__)
         self.assertEqual(obj_str, str(b1))
 
     def test_create_basemodel_is(self):
@@ -119,12 +121,11 @@ class TestBase_save(unittest.TestCase):
         with self.assertRaises(TypeError):
             BaseModel().save({"key": "value"})
 
-
     def test_save_type(self):
         base1 = BaseModel()
         base1.save()
         self.assertIsInstance(base1.updated_at, datetime)
-    
+
     def test_save_changed_value(self):
         base1 = BaseModel()
         old_date = base1.updated_at
@@ -143,7 +144,8 @@ class TestBase_to_dict(unittest.TestCase):
             BaseModel().to_dict("one arg")
 
         with self.assertRaises(TypeError):
-            BaseModel().to_dict("first arg", ["a list"], ("a tuple", "with another element"))
+            BaseModel().to_dict(
+                "first arg", ["a list"], ("a tuple", "with another element"))
 
         with self.assertRaises(TypeError):
             BaseModel().to_dict(9, 87)
@@ -173,7 +175,8 @@ class TestBase_string(unittest.TestCase):
         base = BaseModel()
         class_name = base.__class__
         base_id = base.id
-        obj_str = "[" + base.__class__.__name__ + "] (" + base.id + ") "+ str(base.__dict__)
+        obj_str = "[" + base.__class__.__name__ + \
+            "] (" + base.id + ") " + str(base.__dict__)
         self.assertEqual(base.__str__(), obj_str)
 
 

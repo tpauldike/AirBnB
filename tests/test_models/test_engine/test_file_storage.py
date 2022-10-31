@@ -18,9 +18,10 @@ from models.base_model import BaseModel
 from models import storage
 from models.engine.file_storage import FileStorage
 
+
 class TestStorage_instantiation(unittest.TestCase):
     """ Unittests for testing the instantiation of the FileStorage Class. """
-    
+
     def test_storage_is_file_storage(self):
         self.assertIsInstance(FileStorage(), FileStorage)
 
@@ -102,8 +103,9 @@ class TestStorage_save(unittest.TestCase):
     def setUp():
         try:
             pass
-        except:
+        except BaseException:
             pass
+
     @staticmethod
     def tearDown():
         try:

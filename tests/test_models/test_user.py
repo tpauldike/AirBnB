@@ -16,7 +16,8 @@ from models.user import User
 
 class TestUser_instatiation(unittest.TestCase):
     """ Unittests for testing the instatiation of the class User """
-    def test_user_class(self):
+
+    def test_obj_is_user(self):
         self.assertIsInstance(User(), User)
 
     def test_user_subclass(self):

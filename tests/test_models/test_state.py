@@ -14,9 +14,11 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.state import State
 
+
 class TestState_instatiation(unittest.TestCase):
     """ Unittests for testing the instatiation of the class State """
-    def test_state_class(self):
+
+    def test_obj_is_state(self):
         self.assertIsInstance(State(), State)
 
     def test_state_subclass(self):
