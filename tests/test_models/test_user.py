@@ -14,6 +14,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
 
+
 class TestUser_instatiation(unittest.TestCase):
     """ Unittests for testing the instatiation of the class User """
 
@@ -104,7 +105,6 @@ class TestUser_to_dict(unittest.TestCase):
     def test_user_to_dict_with_args(self):
         with self.assertRaises(TypeError):
             User().to_dict([])
-
 
 
 if __name__ == "__main__":

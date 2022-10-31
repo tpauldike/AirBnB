@@ -92,6 +92,5 @@ class TestState_to_dict(unittest.TestCase):
             State().to_dict([])
 
 
-
 if __name__ == "__main__":
     unittest.main()
