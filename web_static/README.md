@@ -5,6 +5,6 @@ In this project, I learned how to create some static web content by using `HTML`
 
 Below was the final product I arrived at.
 
-![Final product for this very project](https://web.facebook.com/photo/?fbid=5681188748614220&set=a.335929466473535)
+![Final product for the project](https://m.facebook.com/photo/?fbid=5681188748614220&set=a.335929466473535)
 
 To see other features that are not displayed on a photo, you may need to clone this repository and paste the path to the file `8-index.html` on your browser address.
